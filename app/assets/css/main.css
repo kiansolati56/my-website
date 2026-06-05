@@ -48,11 +48,11 @@
     }
 
     @variant xl {
-        padding-inline: 1.5rem;
+        padding-inline: 3rem;
     }
 
     @variant 2xl {
-        padding-inline: 4rem;
+        padding-inline: 8rem;
     }
 }
 

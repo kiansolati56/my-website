@@ -1,6 +1,6 @@
 <template>
     <svg viewBox="0 0 1440 181" fill="none" xmlns="http://www.w3.org/2000/svg"
-        class="pointer-events-none absolute w-full -top-px transition-all text-white/60 shrink-0 -z-10 duration-400">
+        class="pointer-events-none absolute w-full -top-px transition-all text-foreground shrink-0 -z-10 hidden md:block">
         <path d="M0 0H1440V181H0V0Z" fill="url(#paint0_linear_414_5526)" fill-opacity="0.22"></path>
         <path d="M0 2H1440V-2H0V2Z" fill="url(#paint1_linear_414_5526)" mask="url(#path-1-inside-1_414_5526)"></path>
         <defs>
