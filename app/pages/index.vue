@@ -1,100 +1,180 @@
-<script setup>
-const pageTitle = 'Kian - Frontend Developer'
+<script setup lang="ts">
+import { nextTick, onMounted, ref } from "vue";
+import gsap from "gsap";
+
+const pageTitle = "Kian - Frontend Developer";
 
 useHead({
     bodyAttrs: {
-        class: 'relative min-h-screen bg-background font-inter overflow-x-hidden text-foreground'
-    }
-})
+        class: "relative min-h-screen bg-background font-inter overflow-x-hidden text-foreground",
+    },
+});
 
 useSeoMeta({
-    title: computed(() => pageTitle.replaceAll('&#8211;', '-'))
-})
+    title: pageTitle.replaceAll("&#8211;", "-"),
+});
 
 const navItems = [
-    { label: 'About me', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact-me' },
-]
+    { label: "About me", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Experience", href: "#experience" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact-me" },
+];
 
 const services = [
     {
-        title: 'Modern Frontend Applications',
+        title: "Modern Frontend Applications",
         description:
             `<p>Building responsive and high-performance web applications with <span class="text-[#00dc82]">Nuxt</span>, <span class="text-[#00dc82]">Vue</span>, <span class="text-[#00bcff]">Tailwind CSS</span>, and <span class="text-[#F7DF1E]">JavaScript</span>.</p>`,
     },
     {
-        title: 'Headless CMS Solutions',
+        title: "Headless CMS Solutions",
         description:
-            'Developing scalable websites powered by WordPress Headless CMS and modern frontend technologies.',
+            "Developing scalable websites powered by WordPress Headless CMS and modern frontend technologies.",
     },
     {
-        title: 'Full-Stack Web Solutions',
+        title: "Full-Stack Web Solutions",
         description:
             `<p>Creating complete web platforms using <span class="text-[#f53003]">Laravel</span> APIs combined with modern <span class="text-[#00dc82]">Vue</span> and <span class="text-[#00dc82]">Nuxt</span> frontends.</p>`,
     },
-]
+];
 
 const experience = [
     {
-        role: 'Frontend Developer',
-        company: 'Archiveads',
-        link: 'https://archiveads.com',
-        period: '2025 — Present',
+        role: "Frontend Developer",
+        company: "Archiveads",
+        link: "https://archiveads.com",
+        period: "2025 — Present",
         description:
-            'Worked on commercial web projects with a focus on Nuxt, responsive layouts, reusable components, and production-ready frontend delivery.',
+            "Worked on commercial web projects with a focus on Nuxt, responsive layouts, reusable components, and production-ready frontend delivery.",
     },
     {
-        role: 'Frontend Developer',
-        company: 'Freelance / Contract Work',
-        period: '2025 — Present',
+        role: "Frontend Developer",
+        company: "Freelance / Contract Work",
+        period: "2025 — Present",
         description:
-            'Built and maintained multiple real-world websites and interfaces for business use, including WordPress headless implementations.',
+            "Built and maintained multiple real-world websites and interfaces for business use, including WordPress headless implementations.",
     },
-]
+];
 
 const skillGroups = [
     {
-        title: 'Frontend',
-        items: ['HTML', 'CSS', 'Tailwind CSS', 'JavaScript', 'Vue.js', 'Nuxt.js'],
+        title: "Frontend",
+        items: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Vue.js", "Nuxt.js"],
     },
     {
-        title: 'Backend / CMS',
-        items: ['WordPress Headless', 'Laravel (Learning)'],
+        title: "Backend / CMS",
+        items: ["WordPress Headless", "Laravel (Learning)"],
     },
     {
-        title: 'Tools',
-        items: ['Git', 'Linux', 'Figma'],
+        title: "Tools",
+        items: ["Git", "Linux", "Figma"],
     },
     {
-        title: 'Soft Skills',
-        items: ['Teamwork', 'Communication', 'Adaptability', 'Time Management', 'Problem Solving'],
+        title: "Soft Skills",
+        items: ["Teamwork", "Communication", "Adaptability", "Time Management", "Problem Solving"],
     },
-]
+];
 
 const projects = [
     {
-        title: 'Business Website',
+        title: "Business Website",
         description:
-            'A modern responsive company website built with Nuxt and Tailwind CSS, focused on performance and clean presentation.',
-        tags: ['Nuxt', 'Tailwind', 'Responsive'],
+            "A modern responsive company website built with Nuxt and Tailwind CSS, focused on performance and clean presentation.",
+        tags: ["Nuxt", "Tailwind", "Responsive"],
     },
     {
-        title: 'Headless WordPress Frontend',
+        title: "Headless WordPress Frontend",
         description:
-            'A flexible frontend connected to WordPress as a headless CMS, built for smooth content management and fast UX.',
-        tags: ['Nuxt', 'WordPress', 'API'],
+            "A flexible frontend connected to WordPress as a headless CMS, built for smooth content management and fast UX.",
+        tags: ["Nuxt", "WordPress", "API"],
     },
     {
-        title: 'UI Components Library',
+        title: "UI Components Library",
         description:
-            'Reusable frontend components and patterns used across multiple projects to speed up development and keep consistency.',
-        tags: ['Vue', 'Components', 'UI'],
+            "Reusable frontend components and patterns used across multiple projects to speed up development and keep consistency.",
+        tags: ["Vue", "Components", "UI"],
     },
-]
+];
+
+const isAvailable = ref(false);
+
+const topFadeWrap = ref<HTMLElement | null>(null);
+const heroLeft = ref<HTMLElement | null>(null);
+const heroVisual = ref<HTMLElement | null>(null);
+const aboutSection = ref<HTMLElement | null>(null);
+
+onMounted(async () => {
+    await nextTick();
+
+    const tl = gsap.timeline({
+        defaults: {
+            ease: "power3.out",
+        },
+    });
+
+    const heroItems = heroLeft.value?.querySelectorAll<HTMLElement>("[data-hero-item]") ?? [];
+
+    tl.fromTo(
+        heroVisual.value,
+        {
+            opacity: 0,
+            y: 14,
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.52,
+        }
+    );
+
+    tl.fromTo(
+        heroItems,
+        {
+            opacity: 0,
+            y: 14,
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.48,
+            stagger: 0.075,
+        },
+        0.06
+    );
+
+    tl.fromTo(
+        aboutSection.value,
+        {
+            opacity: 0,
+            y: 22,
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.62,
+        },
+        1.18
+    );
+
+    tl.fromTo(
+        topFadeWrap.value,
+        {
+            opacity: 0,
+            y: -22,
+            scaleY: 0.94,
+        },
+        {
+            opacity: 1,
+            y: 0,
+            scaleY: 1,
+            duration: 0.72,
+        },
+        1.68
+    );
+});
 </script>
 
 <template>
@@ -157,23 +237,29 @@ const projects = [
     </header>
 
     <main class="pt-14 pb-30">
-        <section class="relative border-b border-white/12 pb-14">
-            <AppTopFade />
+        <section class="relative border-b border-white/12 pb-14 overflow-hidden">
+            <div ref="topFadeWrap"
+                class="pointer-events-none absolute w-full -top-px -z-10 opacity-0 -translate-y-6">
+                <AppTopFade />
+            </div>
+
             <div
                 class="pt-12 sm:pt-20 container flex flex-col lg:flex-row items-center lg:justify-between gap-6 sm:gap-12">
-                <div class="space-y-3 sm:space-y-5 flex flex-col items-center lg:items-start">
-                    <h1 class="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                        <span class="bg-linear-to-r from-foreground to-foreground/50 bg-clip-text text-transparent">
+                <div ref="heroLeft" class="space-y-3 sm:space-y-6 flex flex-col items-center lg:items-start">
+                    <h1 data-hero-item
+                        class="opacity-0 translate-y-4 text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                        <span class="bg-linear-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
                             Kian Farrokhzad
                         </span>
                     </h1>
 
-                    <p class="text-lg font-medium text-muted-foreground md:text-2xl">
+                    <p data-hero-item
+                        class="opacity-0 translate-y-4 text-lg font-medium text-muted-foreground md:text-2xl">
                         Mid-level Frontend Developer
                     </p>
 
-                    <div
-                        class="flex flex-wrap items-center gap-2 sm:gap-4 font-light font-mono text-sm text-muted-foreground">
+                    <div data-hero-item
+                        class="opacity-0 translate-y-4 flex flex-wrap items-center gap-2 sm:gap-4 font-light font-mono text-sm text-muted-foreground">
                         <a href="https://nuxt.com" target="_blank" rel="noreferrer"
                             class="text-[#00dc82] hover:text-foreground">
                             Nuxt
@@ -197,8 +283,8 @@ const projects = [
                         <p>Open Source</p>
                     </div>
 
-                    <div
-                        class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 font-light font-mono text-xs sm:text-sm text-muted-foreground -ml-0.75">
+                    <div data-hero-item
+                        class="opacity-0 translate-y-4 flex flex-col sm:flex-row items-center gap-2 sm:gap-4 font-light font-mono text-xs sm:text-sm text-muted-foreground -ml-0.75">
                         <div class="flex items-center gap-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4 mb-0.75">
@@ -223,9 +309,26 @@ const projects = [
                         </a>
                     </div>
 
-                    <div class="flex items-center gap-2 sm:gap-4">
+                    <div data-hero-item
+                        class="opacity-0 translate-y-4 flex items-center gap-1.5 sm:gap-4 font-light font-mono text-[10px] sm:text-sm text-muted-foreground mt-4 sm:mt-0">
+                        <p>
+                            <span class="text-white">1+</span> Years Experience
+                        </p>
+
+                        <span class="cursor-default">-</span>
+
+                        <p>
+                            <span class="text-white">15+</span> Projects
+                        </p>
+
+                        <span class="cursor-default">-</span>
+
+                        <p>Open Source Lover</p>
+                    </div>
+
+                    <div data-hero-item class="opacity-0 translate-y-4 flex items-center gap-2 sm:gap-4">
                         <button
-                            class="h-8 px-3 rounded-lg bg-white/90 hover:bg-white text-black center gap-2 text-sm font-light">
+                            class="h-10 px-4 rounded-lg bg-white/90 hover:bg-white text-black center gap-2 text-sm font-light">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-5 mb-0.75">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -235,7 +338,7 @@ const projects = [
                         </button>
 
                         <a href="#contact-me"
-                            class="h-8 px-3 rounded-lg bg-thgray-100/80 hover:bg-thgray-300/80 border border-thgray-200 center gap-2 text-sm font-light text-foreground">
+                            class="h-10 px-4 rounded-lg bg-thgray-100/80 hover:bg-thgray-300/80 border border-thgray-200 center gap-2 text-sm font-light text-foreground">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-5 mb-0.5">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -245,9 +348,10 @@ const projects = [
                         </a>
                     </div>
 
-                    <div class="flex items-center gap-2">
+                    <div data-hero-item
+                        class="opacity-0 translate-y-4 flex items-center gap-2 sm:gap-4 text-muted-foreground">
                         <a href="https://github.com/kiansolati56" target="_blank" rel="noreferrer"
-                            class="size-8 rounded-lg hover:bg-white/12 text-foreground/80 center hover:text-foreground">
+                            class="size-8 sm:size-auto rounded-lg hover:bg-white/10 sm:hover:bg-transparent center hover:text-foreground text-sm flex items-center gap-0 sm:gap-2 group">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="size-4">
@@ -255,10 +359,16 @@ const projects = [
                                     d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                                 <path d="M9 18c-4.51 2-5-2-7-2"></path>
                             </svg>
+                            <span class="hidden sm:block">My Github</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="hidden sm:block size-3 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5 15.75 12 8.25 19.5" />
+                            </svg>
                         </a>
 
                         <a href="https://t.me/MrCrowlley" target="_blank" rel="noreferrer"
-                            class="size-8 rounded-lg hover:bg-white/12 text-foreground/80 center hover:text-foreground">
+                            class="size-8 sm:size-auto rounded-lg hover:bg-white/10 sm:hover:bg-transparent center hover:text-foreground text-sm flex items-center gap-0 sm:gap-2 group">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="size-4">
@@ -266,28 +376,58 @@ const projects = [
                                     d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
                                 <path d="m21.854 2.147-10.94 10.939"></path>
                             </svg>
+                            <span class="hidden sm:block">My Telegram</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="hidden sm:block size-3 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5 15.75 12 8.25 19.5" />
+                            </svg>
                         </a>
 
                         <a href="mailto:kianfarrokhzad@gmail.com" target="_blank" rel="noreferrer"
-                            class="size-8 rounded-lg hover:bg-white/12 text-foreground/80 center hover:text-foreground">
+                            class="size-8 sm:size-auto rounded-lg hover:bg-white/10 sm:hover:bg-transparent center hover:text-foreground text-sm flex items-center gap-0 sm:gap-2 group">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="size-4">
                                 <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                             </svg>
+                            <span class="hidden sm:block">My Email</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="hidden sm:block size-3 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5 15.75 12 8.25 19.5" />
+                            </svg>
                         </a>
                     </div>
                 </div>
 
-                <div class="size-40 sm:size-60 md:size-90 relative p-1 sm:p-2 border-2 border-white/20 overflow-hidden rounded-full order-first lg:order-last">
-                    <nuxt-img class="size-full object-cover rounded-full" src="/images/profile.jpg"
-                        alt="Kian Farrokhzad" />
+                <div ref="heroVisual"
+                    class="order-first lg:order-last flex flex-col items-center gap-y-4 opacity-0 translate-y-4">
+                    <div
+                        class="size-40 sm:size-60 md:size-80 relative p-1 sm:p-1.5 border-2 border-white/20 overflow-hidden rounded-full">
+                        <nuxt-img class="size-full object-cover rounded-full" src="/images/profile.jpg"
+                            alt="Kian Farrokhzad" />
+                    </div>
+
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="relative flex size-2.5">
+                            <span class="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+                                :class="isAvailable ? 'bg-green-300' : 'bg-red-300'"></span>
+                            <span class="relative inline-flex size-2.5 rounded-full"
+                                :class="isAvailable ? 'bg-green-400' : 'bg-red-400'"></span>
+                        </span>
+                        <p class="text-sm text-muted-foreground">
+                            <span v-if="isAvailable">Available for work</span>
+                            <span v-else>Not available for work</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="mt-13 md:mt-26 container scroll-mt-24">
+        <section ref="aboutSection" id="about"
+            class="mt-13 md:mt-26 container scroll-mt-24 opacity-0 translate-y-6">
             <div class="flex items-center gap-4">
                 <div class="h-1 w-4 rounded-full bg-linear-to-r from-foreground/30 via-foreground to-foreground/30">
                 </div>
@@ -302,13 +442,14 @@ const projects = [
                     learned
                     through documentation, personal projects, real-world development experience, and countless hours of
                     problem-solving.
-                    <br><br>
+                    <br /><br />
                     I enjoy turning ideas into fast, responsive, and user-friendly applications with a strong focus on
                     clean
                     design and performance. Beyond coding, I value teamwork, clear communication, adaptability, and
                     continuous
                     learning. I believe the best way to grow as a developer is by building real projects, embracing
-                    challenges, and staying curious about new technologies.
+                    challenges,
+                    and staying curious about new technologies.
                 </p>
             </div>
         </section>
@@ -321,16 +462,16 @@ const projects = [
             </div>
 
             <div class="mt-4 md:mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                <div class="rounded-lg border border-white/12 p-6 md:p-8 hover:border-white/30 hover:bg-white/8"
-                    v-for="item in services">
+                <div v-for="item in services" :key="item.title"
+                    class="rounded-lg border border-white/12 p-6 md:p-8 hover:border-white/30 hover:bg-white/8">
                     <h3 class="sm:text-lg md:text-xl text-foreground flex items-center gap-2">
                         <div>
                             $<span class="text-green-500">_</span>
                         </div>
-                        <span>{{ item?.title }}</span>
+                        <span>{{ item.title }}</span>
                     </h3>
                     <div class="text-muted-foreground leading-relaxed mt-4 pl-4 border-l-3 border-white/20"
-                        v-html="item?.description"></div>
+                        v-html="item.description"></div>
                 </div>
             </div>
         </section>
@@ -350,7 +491,7 @@ const projects = [
                         class="relative grid gap-4 pb-10 last:pb-0 md:grid-cols-[96px_1fr] md:gap-12">
                         <div class="relative pl-10 md:pl-0">
                             <div
-                                class="absolute left-0 top-1.5 size-7 rounded-full border border-white/12 bg-background/90 backdrop-blur-sm flex items-center justify-center md:left-25.5">
+                                class="absolute left-0 top-1.5 size-7 rounded-full border border-white/12 bg-background/90 backdrop flex items-center justify-center md:left-25.5">
                                 <div class="size-2 rounded-full bg-white/70"></div>
                             </div>
 
@@ -362,7 +503,7 @@ const projects = [
                         </div>
 
                         <article
-                            class="group rounded-2xl border border-white/8 bg-white/4 p-5 md:p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/12 hover:bg-white/6">
+                            class="group rounded-2xl border border-white/8 bg-white/4 p-5 md:p-6 backdrop transition-all duration-300 hover:border-white/12 hover:bg-white/6">
                             <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                                 <div class="space-y-1">
                                     <div class="flex flex-wrap items-center gap-2">
@@ -409,13 +550,9 @@ const projects = [
 
                             <div class="mt-5 flex flex-wrap gap-2">
                                 <span
-                                    class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">
-                                    Nuxt
-                                </span>
+                                    class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">Nuxt</span>
                                 <span
-                                    class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">
-                                    Vue
-                                </span>
+                                    class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">Vue</span>
                                 <span
                                     class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">
                                     Responsive UI
