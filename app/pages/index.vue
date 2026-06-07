@@ -103,7 +103,7 @@ const projects = [
         <nav class="container grid grid-cols-12 items-center">
             <nuxt-link to="/" class="col-span-6 lg:col-span-3 flex justify-start items-center gap-2">
                 <div class="size-8 rounded-full overflow-hidden">
-                    <nuxt-img class="size-full object-cover" src="/images/profile.png" alt="Kian Farrokhzad" />
+                    <nuxt-img class="size-full object-cover" src="/images/profile.jpg" alt="Kian Farrokhzad" />
                 </div>
                 <span class="text-foreground">Kian Farrokhzad</span>
             </nuxt-link>
@@ -280,8 +280,8 @@ const projects = [
                     </div>
                 </div>
 
-                <div class="profile-frame">
-                    <nuxt-img class="size-full object-cover rounded-full" src="/images/profile.png"
+                <div class="size-40 sm:size-60 md:size-90 relative p-1 sm:p-2 border-2 border-white/20 overflow-hidden rounded-full order-first lg:order-last">
+                    <nuxt-img class="size-full object-cover rounded-full" src="/images/profile.jpg"
                         alt="Kian Farrokhzad" />
                 </div>
             </div>
@@ -321,9 +321,9 @@ const projects = [
             </div>
 
             <div class="mt-4 md:mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                <div class="rounded-lg border border-white/12 p-6 md:p-8 hover:border-white/30"
+                <div class="rounded-lg border border-white/12 p-6 md:p-8 hover:border-white/30 hover:bg-white/8"
                     v-for="item in services">
-                    <h3 class="text-lg md:text-xl text-foreground flex items-center gap-2">
+                    <h3 class="sm:text-lg md:text-xl text-foreground flex items-center gap-2">
                         <div>
                             $<span class="text-green-500">_</span>
                         </div>
@@ -335,7 +335,7 @@ const projects = [
             </div>
         </section>
 
-        <section id="experience" class="mt-13 md:mt-26 container scroll-mt-24">
+        <section id="experience" class="mt-13 md:mt-26 container scroll-mt-24 hidden">
             <div class="flex items-center gap-4">
                 <div class="h-1 w-4 rounded-full bg-linear-to-r from-foreground/30 via-foreground to-foreground/30">
                 </div>
@@ -432,64 +432,3 @@ const projects = [
         </section>
     </main>
 </template>
-
-<style scoped>
-.profile-frame {
-    --angle: 0deg;
-
-    position: relative;
-    width: 360px;
-    height: 360px;
-    padding: 8px;
-    border-radius: calc(infinity * 1px);
-    overflow: hidden;
-}
-
-.profile-frame::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 2px;
-
-    background: conic-gradient(from var(--angle),
-            transparent,
-            transparent,
-            transparent,
-            #ffffff50,
-            transparent,
-            transparent,
-            transparent);
-
-    mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    animation: rotate 6s linear infinite;
-}
-
-.profile-frame::after {
-    content: "";
-    position: absolute;
-    inset: -40px;
-    background: radial-gradient(circle,
-            rgba(104, 122, 255, 0.18),
-            transparent 60%);
-    filter: blur(30px);
-    z-index: -1;
-}
-
-@keyframes rotate {
-    to {
-        --angle: 360deg;
-    }
-}
-
-@property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-}
-</style>
