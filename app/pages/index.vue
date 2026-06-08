@@ -48,33 +48,43 @@ const experience = [
         link: "https://archiveads.com",
         period: "2025 — Present",
         description:
-            "Worked on commercial web projects with a focus on Nuxt, responsive layouts, reusable components, and production-ready frontend delivery.",
+            "Focused on Nuxt development, scalable UI architecture, and modern frontend workflows.",
     },
     {
         role: "Frontend Developer",
         company: "Freelance / Contract Work",
         period: "2025 — Present",
         description:
-            "Built and maintained multiple real-world websites and interfaces for business use, including WordPress headless implementations.",
+            "Delivering custom websites and headless CMS solutions for clients.",
     },
 ];
 
 const skillGroups = [
     {
         title: "Frontend",
-        items: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Vue.js", "Nuxt.js"],
+        items: [
+            { name: "HTML", level: 95, href: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#E34F26" },
+            { name: "CSS", level: 95, href: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "#1572B6" },
+            { name: "Tailwind CSS", level: 95, href: "https://tailwindcss.com", color: "#38BDF8" },
+            { name: "JavaScript", level: 45, href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#F7DF1E" },
+            { name: "TypeScript", level: 20, href: "https://www.typescriptlang.org", color: "#3178C6" },
+            { name: "Vue.js", level: 55, href: "https://vuejs.org", color: "#42B883" },
+            { name: "Nuxt.js", level: 70, href: "https://nuxt.com", color: "#00DC82" },
+        ],
     },
     {
         title: "Backend / CMS",
-        items: ["WordPress Headless", "Laravel (Learning)"],
+        items: [
+            { name: "WordPress Headless", level: 80, href: "https://wordpress.org", color: "#21759B" },
+            { name: "Laravel API", level: 15, href: "https://laravel.com", color: "#FF2D20" },
+        ],
     },
     {
         title: "Tools",
-        items: ["Git", "Linux", "Figma"],
-    },
-    {
-        title: "Soft Skills",
-        items: ["Teamwork", "Communication", "Adaptability", "Time Management", "Problem Solving"],
+        items: [
+            { name: "Git", level: 60, href: "https://git-scm.com", color: "#F05032" },
+            { name: "Linux", level: 35, href: "https://kernel.org", color: "#FCC624" },
+        ],
     },
 ];
 
@@ -100,81 +110,6 @@ const projects = [
 ];
 
 const isAvailable = ref(false);
-
-const topFadeWrap = ref<HTMLElement | null>(null);
-const heroLeft = ref<HTMLElement | null>(null);
-const heroVisual = ref<HTMLElement | null>(null);
-const aboutSection = ref<HTMLElement | null>(null);
-
-onMounted(async () => {
-    await nextTick();
-
-    const tl = gsap.timeline({
-        defaults: {
-            ease: "power3.out",
-        },
-    });
-
-    const heroItems = heroLeft.value?.querySelectorAll<HTMLElement>("[data-hero-item]") ?? [];
-
-    tl.fromTo(
-        heroVisual.value,
-        {
-            opacity: 0,
-            y: 14,
-        },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 0.52,
-        }
-    );
-
-    tl.fromTo(
-        heroItems,
-        {
-            opacity: 0,
-            y: 14,
-        },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 0.48,
-            stagger: 0.075,
-        },
-        0.06
-    );
-
-    tl.fromTo(
-        aboutSection.value,
-        {
-            opacity: 0,
-            y: 22,
-        },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 0.62,
-        },
-        1.18
-    );
-
-    tl.fromTo(
-        topFadeWrap.value,
-        {
-            opacity: 0,
-            y: -22,
-            scaleY: 0.94,
-        },
-        {
-            opacity: 1,
-            y: 0,
-            scaleY: 1,
-            duration: 0.72,
-        },
-        1.68
-    );
-});
 </script>
 
 <template>
@@ -238,28 +173,25 @@ onMounted(async () => {
 
     <main class="pt-14 pb-30">
         <section class="relative border-b border-white/12 pb-14 overflow-hidden">
-            <div ref="topFadeWrap"
-                class="pointer-events-none absolute w-full -top-px -z-10 opacity-0 -translate-y-6">
+            <div class="pointer-events-none absolute w-full -top-px -z-10">
                 <AppTopFade />
             </div>
 
             <div
                 class="pt-12 sm:pt-20 container flex flex-col lg:flex-row items-center lg:justify-between gap-6 sm:gap-12">
                 <div ref="heroLeft" class="space-y-3 sm:space-y-6 flex flex-col items-center lg:items-start">
-                    <h1 data-hero-item
-                        class="opacity-0 translate-y-4 text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                    <h1 class=" text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                         <span class="bg-linear-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
                             Kian Farrokhzad
                         </span>
                     </h1>
 
-                    <p data-hero-item
-                        class="opacity-0 translate-y-4 text-lg font-medium text-muted-foreground md:text-2xl">
+                    <p class=" text-lg font-medium text-muted-foreground md:text-2xl">
                         Mid-level Frontend Developer
                     </p>
 
-                    <div data-hero-item
-                        class="opacity-0 translate-y-4 flex flex-wrap items-center gap-2 sm:gap-4 font-light font-mono text-sm text-muted-foreground">
+                    <div
+                        class=" flex flex-wrap items-center gap-2 sm:gap-4 font-light font-mono text-sm text-muted-foreground">
                         <a href="https://nuxt.com" target="_blank" rel="noreferrer"
                             class="text-[#00dc82] hover:text-foreground">
                             Nuxt
@@ -283,8 +215,8 @@ onMounted(async () => {
                         <p>Open Source</p>
                     </div>
 
-                    <div data-hero-item
-                        class="opacity-0 translate-y-4 flex flex-col sm:flex-row items-center gap-2 sm:gap-4 font-light font-mono text-xs sm:text-sm text-muted-foreground -ml-0.75">
+                    <div
+                        class=" flex flex-col sm:flex-row items-center gap-2 sm:gap-4 font-light font-mono text-xs sm:text-sm text-muted-foreground -ml-0.75">
                         <div class="flex items-center gap-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4 mb-0.75">
@@ -309,8 +241,8 @@ onMounted(async () => {
                         </a>
                     </div>
 
-                    <div data-hero-item
-                        class="opacity-0 translate-y-4 flex items-center gap-1.5 sm:gap-4 font-light font-mono text-[10px] sm:text-sm text-muted-foreground mt-4 sm:mt-0">
+                    <div
+                        class=" flex items-center gap-1.5 sm:gap-4 font-light font-mono text-[10px] sm:text-sm text-muted-foreground mt-4 sm:mt-0">
                         <p>
                             <span class="text-white">1+</span> Years Experience
                         </p>
@@ -326,7 +258,7 @@ onMounted(async () => {
                         <p>Open Source Lover</p>
                     </div>
 
-                    <div data-hero-item class="opacity-0 translate-y-4 flex items-center gap-2 sm:gap-4">
+                    <div class=" flex items-center gap-2 sm:gap-4">
                         <button
                             class="h-10 px-4 rounded-lg bg-white/90 hover:bg-white text-black center gap-2 text-sm font-light">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -348,8 +280,7 @@ onMounted(async () => {
                         </a>
                     </div>
 
-                    <div data-hero-item
-                        class="opacity-0 translate-y-4 flex items-center gap-2 sm:gap-4 text-muted-foreground">
+                    <div class=" flex items-center gap-2 sm:gap-4 text-muted-foreground">
                         <a href="https://github.com/kiansolati56" target="_blank" rel="noreferrer"
                             class="size-8 sm:size-auto rounded-lg hover:bg-white/10 sm:hover:bg-transparent center hover:text-foreground text-sm flex items-center gap-0 sm:gap-2 group">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -402,8 +333,7 @@ onMounted(async () => {
                     </div>
                 </div>
 
-                <div ref="heroVisual"
-                    class="order-first lg:order-last flex flex-col items-center gap-y-4 opacity-0 translate-y-4">
+                <div class="order-first lg:order-last flex flex-col items-center gap-y-4 ">
                     <div
                         class="size-40 sm:size-60 md:size-80 relative p-1 sm:p-1.5 border-2 border-white/20 overflow-hidden rounded-full">
                         <nuxt-img class="size-full object-cover rounded-full" src="/images/profile.jpg"
@@ -426,8 +356,7 @@ onMounted(async () => {
             </div>
         </section>
 
-        <section ref="aboutSection" id="about"
-            class="mt-13 md:mt-26 container scroll-mt-24 opacity-0 translate-y-6">
+        <section id="about" class="mt-13 md:mt-26 container scroll-mt-24">
             <div class="flex items-center gap-4">
                 <div class="h-1 w-4 rounded-full bg-linear-to-r from-foreground/30 via-foreground to-foreground/30">
                 </div>
@@ -464,7 +393,7 @@ onMounted(async () => {
             <div class="mt-4 md:mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 <div v-for="item in services" :key="item.title"
                     class="rounded-lg border border-white/12 p-6 md:p-8 hover:border-white/30 hover:bg-white/8">
-                    <h3 class="sm:text-lg md:text-xl text-foreground flex items-center gap-2">
+                    <h3 class="xl:text-xl text-foreground flex items-center gap-2">
                         <div>
                             $<span class="text-green-500">_</span>
                         </div>
@@ -476,7 +405,7 @@ onMounted(async () => {
             </div>
         </section>
 
-        <section id="experience" class="mt-13 md:mt-26 container scroll-mt-24 hidden">
+        <section id="experience" class="mt-13 md:mt-26 container scroll-mt-24">
             <div class="flex items-center gap-4">
                 <div class="h-1 w-4 rounded-full bg-linear-to-r from-foreground/30 via-foreground to-foreground/30">
                 </div>
@@ -491,11 +420,11 @@ onMounted(async () => {
                         class="relative grid gap-4 pb-10 last:pb-0 md:grid-cols-[96px_1fr] md:gap-12">
                         <div class="relative pl-10 md:pl-0">
                             <div
-                                class="absolute left-0 top-1.5 size-7 rounded-full border border-white/12 bg-background/90 backdrop flex items-center justify-center md:left-25.5">
+                                class="absolute left-0.5 sm:left-0 lg:top-1.5 size-7 rounded-full border border-white/12 bg-background/90 backdrop flex items-center justify-center md:left-25.5">
                                 <div class="size-2 rounded-full bg-white/70"></div>
                             </div>
 
-                            <div class="md:pt-2">
+                            <div class="pt-1.5 lg:pt-2">
                                 <p class="text-sm font-mono text-white/70">
                                     {{ item.period }}
                                 </p>
@@ -503,7 +432,7 @@ onMounted(async () => {
                         </div>
 
                         <article
-                            class="group rounded-2xl border border-white/8 bg-white/4 p-5 md:p-6 backdrop transition-all duration-300 hover:border-white/12 hover:bg-white/6">
+                            class="rounded-2xl border border-white/12 p-6 md:p-8 backdrop transition-all duration-300 hover:border-white/30 hover:bg-white/8 bg-background md:bg-transparent">
                             <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                                 <div class="space-y-1">
                                     <div class="flex flex-wrap items-center gap-2">
@@ -515,13 +444,12 @@ onMounted(async () => {
 
                                         <template v-if="item.link">
                                             <a :href="item.link" target="_blank" rel="noreferrer"
-                                                class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-white transition-colors">
+                                                class="inline-flex items-center gap-1 text-sm text-white font-medium transition-colors group underline">
                                                 <span>{{ item.company }}</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor"
-                                                    class="size-3.5 opacity-70">
+                                                    stroke-width="1.5" stroke="currentColor" class="size-3 mt-px">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-4.5-4.5H21m0 0v7.5m0-7.5-10.5 10.5" />
+                                                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                                 </svg>
                                             </a>
                                         </template>
@@ -532,39 +460,80 @@ onMounted(async () => {
                                             </span>
                                         </template>
                                     </div>
-
-                                    <p class="text-xs sm:text-sm text-white/45">
-                                        {{ index + 1 }}<span class="mx-1">·</span>Frontend work
-                                    </p>
                                 </div>
 
-                                <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-white/30">
-                                    <span class="size-1.5 rounded-full bg-white/30"></span>
-                                    <span>active</span>
+                                <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-green-500">
+                                    <span class="size-1.5 rounded-full bg-green-500"></span>
+                                    <span class="mt-0.5">active</span>
                                 </div>
                             </div>
 
                             <p class="mt-4 text-sm md:text-base leading-relaxed text-muted-foreground">
                                 {{ item.description }}
                             </p>
-
-                            <div class="mt-5 flex flex-wrap gap-2">
-                                <span
-                                    class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">Nuxt</span>
-                                <span
-                                    class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">Vue</span>
-                                <span
-                                    class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">
-                                    Responsive UI
-                                </span>
-                                <span
-                                    class="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/75">
-                                    Production-ready
-                                </span>
-                            </div>
                         </article>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mt-13 md:mt-26 container scroll-mt-24">
+            <div class="flex items-center gap-4">
+                <div class="h-1 w-4 rounded-full bg-linear-to-r from-foreground/30 via-foreground to-foreground/30">
+                </div>
+                <h2 class="text-xl font-bold tracking-tight md:text-2xl">Skills</h2>
+            </div>
+
+            <div class="mt-6 md:mt-10 grid gap-4 lg:grid-cols-3">
+                <article v-for="group in skillGroups" :key="group.title"
+                    class="group rounded-2xl border border-white/12 p-6 md:p-8 hover:border-white/30 hover:bg-white/8">
+                    <div class="mb-5 flex items-center justify-between gap-4">
+                        <h3 class="text-base font-semibold tracking-tight text-white md:text-lg">
+                            {{ group.title }}
+                        </h3>
+                        <span class="text-xs font-mono text-white/35">{{ group.items.length }} items</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div v-for="skill in group.items" :key="skill.name" class="space-y-2">
+                            <div class="flex items-center justify-between gap-3">
+                                <a :href="skill.href" target="_blank" rel="noreferrer"
+                                    class="group/link inline-flex items-center gap-2 text-sm font-medium text-foreground/85 transition-all duration-200 hover:text-white">
+                                    <span
+                                        class="size-2 rounded-full ring-1 ring-white/10 transition-transform duration-200 group-hover/link:scale-110"
+                                        :style="{ backgroundColor: skill.color }"></span>
+
+                                    <span class="transition-transform duration-200 group-hover/link:translate-x-0.5">
+                                        {{ skill.name }}
+                                    </span>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.6" stroke="currentColor"
+                                        class="size-3 opacity-0 -translate-x-1 transition-all duration-200 group-hover/link:opacity-100 group-hover/link:translate-x-0">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M8.25 4.5 15.75 12 8.25 19.5" />
+                                    </svg>
+                                </a>
+
+                                <span class="text-xs font-mono text-muted-foreground/80">
+                                    {{ skill.level }}%
+                                </span>
+                            </div>
+
+                            <div class="relative h-2 overflow-hidden rounded-full bg-white/8 ring-1 ring-white/5">
+                                <div class="skill-fill absolute inset-y-0 left-0 overflow-hidden rounded-full" :style="{
+                                    width: `${skill.level}%`,
+                                    backgroundColor: skill.color,
+                                    boxShadow: `0 0 16px ${skill.color}22`,
+                                }">
+                                    <div class="skill-shimmer absolute inset-y-0 left-0 w-1/2" :style="{
+                                        backgroundImage: `linear-gradient(90deg, transparent 0%, ${skill.color}22 35%, ${skill.color}55 50%, ${skill.color}22 65%, transparent 100%)`,
+                                    }"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
