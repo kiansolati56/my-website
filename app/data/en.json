@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "lang": "en",
+    "dir": "ltr",
+    "fontClass": "font-inter",
+    "pageTitle": "Kian Farrokhzad — Frontend Developer",
+    "siteName": "Kian Farrokhzad",
+    "description": "Kian Farrokhzad is a frontend developer focused on Nuxt, Vue, Tailwind CSS, JavaScript, WordPress headless, and modern web experiences.",
+    "keywords": "Kian Farrokhzad, frontend developer, Nuxt, Vue, Tailwind CSS, JavaScript, WordPress headless, Laravel, Iran",
+    "locale": "en_US"
+  },
+  "languageSwitcher": {
+    "current": "English",
+    "items": [{
+        "code": "en",
+        "label": "English",
+        "short": "EN",
+        "flag": "🇬🇧"
+      },
+      {
+        "code": "fa",
+        "label": "Persian",
+        "short": "FA",
+        "flag": "🇮🇷"
+      }
+    ]
+  },
+  "navItems": [{
+      "label": "About me",
+      "href": "#about"
+    },
+    {
+      "label": "Services",
+      "href": "#services"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
+  ],
+  "hero": {
+    "name": "Kian Farrokhzad",
+    "role": "Mid-level Frontend Developer",
+    "tags": [
+      "Nuxt",
+      "Vue",
+      "Linux",
+      "Open Source"
+    ],
+    "location": "Iran, Mashhad",
+    "email": "kianfarrokhzad@gmail.com",
+    "stats": [{
+        "value": "1+",
+        "label": "Years Experience"
+      },
+      {
+        "value": "15+",
+        "label": "Projects"
+      },
+      {
+        "value": "",
+        "label": "Open Source Lover"
+      }
+    ],
+    "primaryCta": "Download CV",
+    "secondaryCta": "Contact Me",
+    "socials": {
+      "github": "My Github",
+      "telegram": "My Telegram",
+      "email": "My Email"
+    },
+    "availability": {
+      "available": "Available for work",
+      "busy": "Not available for work",
+      "isAvailable": true
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "content": "I’m a self-taught Frontend Developer who really enjoys building modern web experiences and constantly improving my skills. I got into programming at a young age, and since then I’ve learned mostly through documentation, personal projects, real-world experience, and a lot of trial and error.<br><br>I like turning ideas into fast, responsive, and user-friendly apps with a strong focus on clean design and good performance. Beyond coding, I care about teamwork, clear communication, adaptability, and always learning new things. I believe the best way to grow as a developer is to build real projects, take on challenges, and stay curious about new technologies."
+  },
+  "services": [{
+      "title": "Frontend Development",
+      "description": "<p>Building fast and responsive web applications using <span class=\"text-[#00dc82]\">Nuxt</span>, <span class=\"text-[#00dc82]\">Vue</span>, <span class=\"text-[#00bcff]\">Tailwind CSS</span>, and <span class=\"text-[#F7DF1E]\">JavaScript</span> with a strong focus on clean UI and smooth performance.</p>"
+    },
+    {
+      "title": "Headless CMS Development",
+      "description": "<p>Developing scalable websites using <span class=\"text-[#21759B]\">WordPress Headless CMS</span> combined with modern frontend technologies for flexible content management and better performance.</p>"
+    },
+    {
+      "title": "Website Maintenance & Support",
+      "description": "<p>Maintaining websites by fixing issues, improving performance, and ensuring a stable, fast, and smooth user experience over time.</p>"
+    },
+    {
+      "title": "Server & Hosting Management",
+      "description": "<p>Managing <span class=\"text-[#8B5CF6]\">VPS</span>, domains, and hosting setups, handling deployments, and ensuring stable and reliable server performance.</p>"
+    }
+  ],
+  "experience": [{
+      "role": "Frontend Developer",
+      "company": "Archiveads",
+      "link": "https://archiveads.com",
+      "period": "2025 — Present",
+      "description": "Focused on Nuxt development, scalable UI architecture, and modern frontend workflows."
+    },
+    {
+      "role": "Frontend Developer",
+      "company": "Freelance / Contract Work",
+      "period": "2025 — Present",
+      "description": "Delivering custom websites and headless CMS solutions for clients."
+    }
+  ],
+  "skills": [{
+      "title": "Frontend",
+      "items": [{
+          "name": "HTML",
+          "level": 95,
+          "href": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+          "color": "#E34F26"
+        },
+        {
+          "name": "CSS",
+          "level": 95,
+          "href": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+          "color": "#1572B6"
+        },
+        {
+          "name": "Tailwind CSS",
+          "level": 95,
+          "href": "https://tailwindcss.com",
+          "color": "#38BDF8"
+        },
+        {
+          "name": "JavaScript",
+          "level": 45,
+          "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+          "color": "#F7DF1E"
+        },
+        {
+          "name": "TypeScript",
+          "level": 20,
+          "href": "https://www.typescriptlang.org",
+          "color": "#3178C6"
+        },
+        {
+          "name": "Vue.js",
+          "level": 55,
+          "href": "https://vuejs.org",
+          "color": "#42B883"
+        },
+        {
+          "name": "Nuxt.js",
+          "level": 70,
+          "href": "https://nuxt.com",
+          "color": "#00DC82"
+        }
+      ]
+    },
+    {
+      "title": "Backend / CMS",
+      "items": [{
+          "name": "WordPress Headless",
+          "level": 80,
+          "href": "https://wordpress.org",
+          "color": "#21759B"
+        },
+        {
+          "name": "Laravel API",
+          "level": 15,
+          "href": "https://laravel.com",
+          "color": "#FF2D20"
+        }
+      ]
+    },
+    {
+      "title": "Tools",
+      "items": [{
+          "name": "Git",
+          "level": 60,
+          "href": "https://git-scm.com",
+          "color": "#F05032"
+        },
+        {
+          "name": "Linux",
+          "level": 35,
+          "href": "https://kernel.org",
+          "color": "#FCC624"
+        }
+      ]
+    }
+  ],
+  "projects": [{
+    "title": "Dashboard",
+    "description": "<p>A modern collaborative platform for developers and designers to manage projects, and work together in real time Resources</p>",
+    "githublink": "https://github.com/kiansolati56/dashboard",
+    "demolink": "https://dashboard.itskian.ir",
+    "icons": [
+      "Laravel",
+      "Nuxt"
+    ],
+    "date": "7 May 2026"
+  }],
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Got a project, an opportunity, or an idea? Let's connect",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name here..."
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email here..."
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Enter your message here..."
+      }
+    },
+    "submit": {
+      "idle": "Send your message",
+      "sending": "Sending..."
+    },
+    "validation": {
+      "required": "This field is required."
+    }
+  },
+  "toasts": {
+    "languageChanged": {
+      "title": "Language changed",
+      "message": "The site language has been updated."
+    },
+    "messageSent": {
+      "title": "Message sent successfully",
+      "message": "Your message has been sent successfully."
+    }
+  },
+  "footer": "© 2026 Kian Farrokhzad.",
+  "sectionTitles": {
+    "services": "Services",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects"
+  },
+  "labels": {
+    "active": "active",
+    "items": "items",
+    "languages": "languages:",
+    "viewOnGithub": "View on github",
+    "liveDemo": "Live demo"
+  }
+}

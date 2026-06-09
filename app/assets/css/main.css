@@ -24,10 +24,76 @@
     font-display: swap;
 }
 
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('/fonts/peyda/peyda-extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('/fonts/peyda/Peyda-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('/fonts/peyda/peyda-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('/fonts/peyda/Peyda-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('/fonts/peyda/Peyda-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('/fonts/peyda/Peyda-Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('/fonts/peyda/Peyda-SemiBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('/fonts/peyda/Peyda-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
 @theme {
     --font-inter: 'Inter', sans-serif;
+    --font-peyda: "Peyda", "sans-serif";
 
-    --color-background: #000000;
+    --color-background: #0D0D0D;
     --color-foreground: #fafafa;
     --color-muted-foreground: #a1a1aa;
     --color-thgray-100: #28282c;
