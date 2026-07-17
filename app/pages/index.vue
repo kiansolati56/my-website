@@ -414,7 +414,7 @@ watch(currentLocale, () => {
                 <div class="order-first lg:order-last flex flex-col items-center gap-y-4">
                     <div
                         class="size-40 sm:size-60 md:size-80 relative p-1 sm:p-1.5 border-2 border-white/20 overflow-hidden rounded-full">
-                        <NuxtImg class="size-full object-cover rounded-full" src="/images/profile.jpg"
+                        <NuxtImg class="size-full object-cover rounded-full" src="/images/profile.png"
                             :alt="hero.name" />
                     </div>
 
@@ -657,7 +657,7 @@ watch(currentLocale, () => {
             </div>
         </section>
 
-        <section id="contact" class="mt-23 md:mt-46 container scroll-mt-24">
+        <section id="contact" class="mt-23 md:mt-46 container scroll-mt-24 hidden">
             <div class="flex justify-center items-center flex-col">
                 <div class="flex items-center justify-center gap-4">
                     <div
