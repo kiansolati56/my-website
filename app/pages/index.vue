@@ -638,7 +638,7 @@ watch(currentLocale, () => {
                         </a>
 
                         <a :href="item.demolink" target="_blank"
-                            class="size-auto center hover:text-foreground text-sm flex items-center gap-2 group">
+                            class="size-auto center hover:text-foreground text-sm hidden items-center gap-2 group">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4">
                                 <path stroke-linecap="round" stroke-linejoin="round"
