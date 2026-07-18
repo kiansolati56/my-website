@@ -242,7 +242,7 @@ watch(currentLocale, () => {
                                             <span :class="isEn ? 'mb-px' : 'mt-px'">{{ item.flag }}</span>
                                             <span class="text-foreground text-sm">{{ item.label }}</span>
                                             <span class="font-mono text-muted-foreground text-xs mt-0.5">{{ item.short
-                                                }}</span>
+                                            }}</span>
                                         </div>
                                     </button>
                                 </li>
@@ -251,7 +251,7 @@ watch(currentLocale, () => {
                     </Transition>
                 </div>
 
-                <a href="mailto:kianHabibi@gmail.com"
+                <a href="mailto:kiansolati56@gmail.com"
                     class="size-8 rounded-lg bg-thgray-100/80 hover:bg-thgray-300/80 border border-thgray-200 text-foreground center shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -606,7 +606,7 @@ watch(currentLocale, () => {
                             <span>{{ item.title }}</span>
                         </div>
                         <span class="text-xs text-muted-foreground mt-1.5" :class="isEn ? 'font-mono' : ''">{{ item.date
-                            }}</span>
+                        }}</span>
                     </h3>
                     <div class="text-muted-foreground leading-relaxed mt-4 border-white/20"
                         :class="isEn ? 'pl-4 border-l-3' : 'pr-4 border-r-3'" v-html="item.description"></div>
@@ -638,7 +638,7 @@ watch(currentLocale, () => {
                         </a>
 
                         <a :href="item.demolink" target="_blank"
-                            class="size-auto center hover:text-foreground text-sm hidden items-center gap-2 group">
+                            class="size-auto hidden hover:text-foreground text-sm items-center gap-2 group">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4">
                                 <path stroke-linecap="round" stroke-linejoin="round"

@@ -3,10 +3,10 @@
     "lang": "fa",
     "dir": "rtl",
     "fontClass": "font-peyda",
-    "pageTitle": "کیان فرخزاد — توسعه‌دهنده فرانت‌اند",
-    "siteName": "کیان فرخزاد",
-    "description": "کیان فرخزاد یک توسعه‌دهنده فرانت‌اند است که روی Nuxt، Vue، Tailwind CSS، JavaScript، WordPress Headless و تجربه‌های وب مدرن کار می‌کند.",
-    "keywords": "کیان فرخزاد, توسعه‌دهنده فرانت‌اند, Nuxt, Vue, Tailwind CSS, JavaScript, WordPress Headless, Laravel, ایران",
+    "pageTitle": "کیان حبیبی — توسعه‌دهنده فرانت‌اند",
+    "siteName": "کیان حبیبی",
+    "description": "کیان حبیبی یک توسعه‌دهنده فرانت‌اند است که روی Nuxt، Vue، Tailwind CSS، JavaScript، WordPress Headless و تجربه‌های وب مدرن کار می‌کند.",
+    "keywords": "کیان حبیبی, توسعه‌دهنده فرانت‌اند, Nuxt, Vue, Tailwind CSS, JavaScript, WordPress Headless, Laravel, ایران",
     "locale": "fa_IR"
   },
   "languageSwitcher": {
@@ -47,7 +47,7 @@
     }
   ],
   "hero": {
-    "name": "کیان فرخزاد",
+    "name": "کیان حبیبی",
     "role": "توسعه‌دهنده فرانت‌اند سطح میانی",
     "tags": [
       "Nuxt",
@@ -56,7 +56,7 @@
       "متن‌باز"
     ],
     "location": "ایران، مشهد",
-    "email": "kianHabibi@gmail.com",
+    "email": "kiansolati56@gmail.com",
     "stats": [{
         "value": "1+",
         "label": "سال تجربه"
@@ -243,7 +243,7 @@
       "message": "پیام تو با موفقیت ارسال شد."
     }
   },
-  "footer": "© ۲۰۲۶ کیان فرخزاد.",
+  "footer": "© ۲۰۲۶ کیان حبیبی.",
   "sectionTitles": {
     "services": "خدمات",
     "experience": "تجربه",
