@@ -186,7 +186,7 @@ watch(currentLocale, () => {
         <nav class="container grid grid-cols-12 items-center">
             <NuxtLink to="/" class="col-span-6 lg:col-span-3 flex justify-start items-center gap-2">
                 <div class="size-8 rounded-full overflow-hidden">
-                    <NuxtImg class="size-full object-cover" src="/images/profile.jpg" :alt="hero.name" />
+                    <NuxtImg class="size-full object-cover" src="/images/profile.png" :alt="hero.name" />
                 </div>
                 <span class="text-foreground">{{ hero.name }}</span>
             </NuxtLink>
@@ -242,7 +242,7 @@ watch(currentLocale, () => {
                                             <span :class="isEn ? 'mb-px' : 'mt-px'">{{ item.flag }}</span>
                                             <span class="text-foreground text-sm">{{ item.label }}</span>
                                             <span class="font-mono text-muted-foreground text-xs mt-0.5">{{ item.short
-                                            }}</span>
+                                                }}</span>
                                         </div>
                                     </button>
                                 </li>
@@ -251,7 +251,7 @@ watch(currentLocale, () => {
                     </Transition>
                 </div>
 
-                <a href="mailto:kianfarrokhzad@gmail.com"
+                <a href="mailto:kianHabibi@gmail.com"
                     class="size-8 rounded-lg bg-thgray-100/80 hover:bg-thgray-300/80 border border-thgray-200 text-foreground center shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -606,10 +606,10 @@ watch(currentLocale, () => {
                             <span>{{ item.title }}</span>
                         </div>
                         <span class="text-xs text-muted-foreground mt-1.5" :class="isEn ? 'font-mono' : ''">{{ item.date
-                        }}</span>
+                            }}</span>
                     </h3>
-                    <div class="text-muted-foreground leading-relaxed mt-4 border-white/20" :class="isEn ? 'pl-4 border-l-3' : 'pr-4 border-r-3'"
-                        v-html="item.description"></div>
+                    <div class="text-muted-foreground leading-relaxed mt-4 border-white/20"
+                        :class="isEn ? 'pl-4 border-l-3' : 'pr-4 border-r-3'" v-html="item.description"></div>
                     <div class="text-muted-foreground flex items-center gap-4 mt-4 text-sm">
                         <h3 :class="isEn ? 'font-mono' : ''">{{ labels.languages }}</h3>
                         <div class="flex items-center gap-4">
@@ -708,8 +708,9 @@ watch(currentLocale, () => {
                             class="h-10 px-4 rounded-lg bg-white/90 hover:bg-white text-black center gap-2 text-sm font-light"
                             :class="isSending ? 'opacity-50 cursor-not-allowed' : ''" :disabled="isSending"
                             type="submit">
-                            <svg :class="isEn ? '' : 'rotate-180 order-last'" v-if="!isSending" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="size-5">
+                            <svg :class="isEn ? '' : 'rotate-180 order-last'" v-if="!isSending"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                             </svg>

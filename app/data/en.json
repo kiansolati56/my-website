@@ -3,10 +3,10 @@
     "lang": "en",
     "dir": "ltr",
     "fontClass": "font-inter",
-    "pageTitle": "Kian Farrokhzad — Frontend Developer",
-    "siteName": "Kian Farrokhzad",
-    "description": "Kian Farrokhzad is a frontend developer focused on Nuxt, Vue, Tailwind CSS, JavaScript, WordPress headless, and modern web experiences.",
-    "keywords": "Kian Farrokhzad, frontend developer, Nuxt, Vue, Tailwind CSS, JavaScript, WordPress headless, Laravel, Iran",
+    "pageTitle": "Kian Habibi — Frontend Developer",
+    "siteName": "Kian Habibi",
+    "description": "Kian Habibi is a frontend developer focused on Nuxt, Vue, Tailwind CSS, JavaScript, WordPress headless, and modern web experiences.",
+    "keywords": "Kian Habibi, frontend developer, Nuxt, Vue, Tailwind CSS, JavaScript, WordPress headless, Laravel, Iran",
     "locale": "en_US"
   },
   "languageSwitcher": {
@@ -51,7 +51,7 @@
     }
   ],
   "hero": {
-    "name": "Kian Farrokhzad",
+    "name": "Kian Habibi",
     "role": "Mid-level Frontend Developer",
     "tags": [
       "Nuxt",
@@ -60,7 +60,7 @@
       "Open Source"
     ],
     "location": "Iran, Mashhad",
-    "email": "kianfarrokhzad@gmail.com",
+    "email": "kianHabibi@gmail.com",
     "stats": [{
         "value": "1+",
         "label": "Years Experience"
@@ -247,7 +247,7 @@
       "message": "Your message has been sent successfully."
     }
   },
-  "footer": "© 2026 Kian Farrokhzad.",
+  "footer": "© 2026 Kian Habibi.",
   "sectionTitles": {
     "services": "Services",
     "experience": "Experience",
