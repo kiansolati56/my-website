@@ -118,12 +118,8 @@
     }
 
     @variant 2xl {
-        padding-inline: 8rem;
+        padding-inline: 4rem;
     }
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -134,17 +130,11 @@ body {
     @apply flex justify-center items-center;
 }
 
-* {
-    transition: all 0.2s ease;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
 a,
 button,
 nuxt-link,
 NuxtLink {
-    cursor: default;
+    cursor: pointer;
 }
 
 ::selection {
