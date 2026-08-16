@@ -8,7 +8,7 @@ const title = 'میدلول وب‌دولوپر (فرانت‌اند)'
 
 const typedTitle = ref('')
 const cursorVisible = ref(true)
-const resumeClicked = ref(false)
+const resumeDownloading = ref(false)
 const pressed = ref(false)
 
 let typingInterval: ReturnType<typeof setInterval> | null = null
@@ -45,13 +45,27 @@ useSeoMeta({
     twitterImageAlt: 'کیان حبیبی، توسعه‌دهنده فرانت‌اند',
 })
 
-const handleResumeClick = (event: MouseEvent) => {
-    if (resumeClicked.value) {
+const handleResumeClick = () => {
+    if (resumeDownloading.value) {
         return
     }
 
-    resumeClicked.value = true
+    resumeDownloading.value = true
     pressed.value = true
+
+    const link = document.createElement('a')
+    link.href = '/files/Kian_Habibi_CV.pdf'
+    link.download = 'Kian_Habibi_CV.pdf'
+    link.style.display = 'none'
+
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+
+    setTimeout(() => {
+        resumeDownloading.value = false
+        pressed.value = false
+    }, 1500)
 }
 
 onMounted(() => {
@@ -139,17 +153,15 @@ onBeforeUnmount(() => {
                 ساخته میشه، هم درست کار کنه و هم استفاده ازش حس خوبی داشته باشه!
             </p>
 
-            <button type="button" :disabled="resumeClicked" :aria-pressed="resumeClicked" :aria-label="resumeClicked
-                ? 'رزومه هنوز قرار داده نشده'
-                : 'دانلود رزومه'
-                "
-                class="relative mt-8 inline-flex h-10 min-w-60 items-center justify-center rounded-xl border border-[#737b78] bg-white px-4 text-[#28302d] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.18),0_3px_0_#252b2a,0_5px_8px_rgba(0,0,0,0.35)] transition-[filter] duration-75 ease-out hover:brightness-[1.025] focus-visible:outline-1 focus-visible:outline-[#86c7a7] focus-visible:outline-offset-3 disabled:cursor-not-allowed disabled:opacity-100 md:mt-12"
+            <button type="button" :disabled="resumeDownloading" :aria-pressed="resumeDownloading"
+                :aria-label="resumeDownloading ? 'در حال دانلود رزومه' : 'دانلود رزومه'"
+                class="relative mt-8 inline-flex h-10 min-w-60 items-center justify-center rounded-xl border border-[#737b78] bg-white px-4 text-[#28302d] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.18),0_3px_0_#252b2a,0_5px_8px_rgba(0,0,0,0.35)] transition-[filter] duration-75 ease-out hover:brightness-[1.025] focus-visible:outline-1 focus-visible:outline-[#86c7a7] focus-visible:outline-offset-3 disabled:cursor-not-allowed disabled:opacity-50 md:mt-12"
                 :class="pressed
-                    ? 'translate-y-0.75 cursor-not-allowed! opacity-60! shadow-[inset_0_1px_0_rgba(255,255,255,0.65),inset_0_-1px_0_rgba(0,0,0,0.14),0_0_0_#252b2a,0_2px_4px_rgba(0,0,0,0.3)] brightness-[0.97]'
+                    ? 'translate-y-0.75 cursor-not-allowed! shadow-[inset_0_1px_0_rgba(255,255,255,0.65),inset_0_-1px_0_rgba(0,0,0,0.14),0_0_0_#252b2a,0_2px_4px_rgba(0,0,0,0.3)] brightness-[0.97]'
                     : ''
                     " @click="handleResumeClick">
                 <span class="relative z-10 inline-flex items-center gap-3">
-                    <svg v-if="!resumeClicked" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    <svg v-if="!resumeDownloading" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="2" stroke="currentColor"
                         class="mb-px size-5 text-[#17201c] drop-shadow-[0_1px_0_rgba(255,255,255,0.35)]"
                         aria-hidden="true">
@@ -157,11 +169,15 @@ onBeforeUnmount(() => {
                             d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                     </svg>
 
+                    <span v-else
+                        class="size-5 animate-spin rounded-full border-2 border-[#28302d]/25 border-t-[#28302d]"
+                        aria-hidden="true" />
+
                     <span
                         class="whitespace-nowrap text-base font-semibold tracking-[0.08em] text-[#28302d] [text-shadow:0_1px_0_rgba(255,255,255,0.6)]">
                         {{
-                            resumeClicked
-                                ? 'هنوز رزومه‌ام رو قرار ندادم ://'
+                            resumeDownloading
+                                ? 'در حال دانلود...'
                                 : 'دانلود رزومه'
                         }}
                     </span>
@@ -236,7 +252,7 @@ onBeforeUnmount(() => {
                 </a>
             </nav>
 
-            <div class="mt-6 text-xs font-semibold text-muted-foreground/70 md:mt-8 text-center">
+            <div class="mt-6 text-center text-xs font-semibold text-muted-foreground/70 md:mt-8">
                 من عاشق برنامه‌نویسی‌ام. حتی وقتی یه‌جورایی یا یه‌وقتایی کد باهام مشکل داره =))
             </div>
         </section>
